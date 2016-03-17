@@ -22,10 +22,19 @@ class RevealingReferences
     @wheels = wheelify(data)
   end
 
-  # Don't give a toss what structure @data is in
-  # Just gimme an enumerable that responds to .rim and .tire
+  # Just gimme an enumerable
+  #
+  # YOU HAD ONE JOB! And that is to iterate over wheels
   def diameters
-    wheels.collect { |wheel| wheel.rim + (wheel.tire * 2) }
+    wheels.collect { |wheel| diameter(wheel) }
+  end
+
+  # Don't give a toss what structure @data is in
+  # Just gimme something that responds to .rim and .tire
+  #
+  # YOU HAD ONE JOB! And that is to calculate the diameter
+  def diameter
+    wheel.rim + (wheel.tire * 2)
   end
 
   Wheel = Struct.new(:rim, :tire)
