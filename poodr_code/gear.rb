@@ -13,8 +13,14 @@ class Gear
     chainring / cog.to_f
   end
 
+  # YOU HAD ONE JOB! And that is to calculate gear inches
   def gear_inches
-    ratio * (rim + (tire * 2))
+    ratio * diameter
+  end
+
+  # YOU HAD ONE JOB! And that is to calculate wheel diameter
+  def diameter
+    rim + (tire * 2)
   end
 
 end
