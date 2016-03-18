@@ -17,11 +17,24 @@ class Gear
     ratio * wheel.diameter
   end
 
-  Wheel = Struct.new(:rim, :tire) do
-    # YOU HAD ONE JOB! And that is to calculate wheel diameter
-    def diameter
-      rim + (tire * 2)
-    end
+end
+
+class Wheel
+
+  attr_reader :rim, :tire
+
+  def initialize(rim, tire)
+    @rim  = rim
+    @tire = tire
+  end
+
+  # YOU HAD ONE JOB! And that is to calculate wheel diameter
+  def diameter
+    rim + (tire * 2)
+  end
+
+  def circumference
+    diameter * Math::PI
   end
 
 end
