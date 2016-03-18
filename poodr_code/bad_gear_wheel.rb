@@ -1,20 +1,20 @@
 class Gear
 
-  attr_reader :chainring, :cog, :wheel
+  attr_reader :chainring, :cog, :rim, :tire
 
-  def initialize(chainring, cog, wheel)
+  def initialize(chainring, cog, rim, tire)
     @chainring = chainring
     @cog       = cog
-    @wheel     = Wheel.new(rim, tire)
+    @rim       = rim
+    @tire      = tire
   end
 
   def ratio
     chainring / cog.to_f
   end
 
-  # YOU HAD ONE JOB! And that is to calculate gear inches
   def gear_inches
-    ratio * wheel.diameter
+    ratio * Wheel.new(rim, tire).diameter
   end
 
 end
