@@ -3,8 +3,10 @@ class Gear
   attr_reader :chainring, :cog, :wheel
 
   def initialize(args)
-    @chainring = args.fetch(:chainring, 40)
-    @cog       = args.fetch(:cog, 18)
+    args = defaults.merge(args) # merge in defaults only if keys not in hash
+
+    @chainring = args[:chainring]
+    @cog       = args[:cog]
     @wheel     = args[:wheel]
   end
 
@@ -20,6 +22,10 @@ class Gear
 
   def diameter
     wheel.diameter
+  end
+
+  def defaults
+    { chainring: 40, cog: 18 }
   end
 
 end
