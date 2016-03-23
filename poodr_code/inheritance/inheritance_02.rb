@@ -11,8 +11,8 @@ class Bicycle
   def spares
     {
       chain:       "10-speed",
-      tire_size:   "23",
-      tape_colour: tape_colour
+      tire_size:   "23",            # true for road bikes only
+      tape_colour: tape_colour      # true for road bikes only
     }
   end
 
